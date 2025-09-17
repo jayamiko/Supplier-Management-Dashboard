@@ -36,3 +36,13 @@ export const supplierAddressData = [
     main: false,
   },
 ];
+
+export const materialData = [
+  {
+    id: "m-1",
+    group: "IT - Device",
+    idLabel: "Computer / Notebook",
+    active: true,
+  },
+  { id: "m-2", group: "IT - Device", idLabel: "Computer / PC", active: true },
+];

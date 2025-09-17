@@ -7,7 +7,7 @@ const DynamicTabs = ({ tabItems }) => {
   const [activeKey, setActiveKey] = useState("1");
 
   return (
-    <Tabs activeKey={activeKey} onChange={setActiveKey} type="line">
+    <Tabs activeKey={activeKey} onChange={setActiveKey} type="card">
       {tabItems.map((tab) => (
         <TabPane tab={tab.label} key={tab.key}>
           {tab.content}

@@ -1,32 +1,17 @@
 import { useState } from "react";
 import { Layout, Menu } from "antd";
-import SupplierList from "../organisms/SupplierList";
+import { Outlet, useNavigate } from "react-router-dom";
 import menuItems from "../../constants/menuItems";
-import ReviewAndApproval from "../organisms/ReviewAndApproval";
-import Configurations from "../organisms/Configurations";
 
 const { Content, Sider } = Layout;
 
 const SupplierManagementTemplate = () => {
   const [selectedKey, setSelectedKey] = useState("dashboard");
+  const navigate = useNavigate();
 
-  const renderContent = () => {
-    switch (selectedKey) {
-      case "supplier-list":
-        return <SupplierList />;
-      case "supplier-dashboard":
-        return <h2>Supplier Dashboard</h2>;
-      case "supplier-review":
-        return <ReviewAndApproval />;
-      case "supplier-config":
-        return <Configurations />;
-      case "funnel-overview":
-        return <h2>Funnel Overview</h2>;
-      case "funnel-reports":
-        return <h2>Funnel Reports</h2>;
-      default:
-        return <h2>Dashboard</h2>;
-    }
+  const handleMenuClick = ({ key }) => {
+    setSelectedKey(key);
+    navigate(`/${key}`);
   };
 
   return (
@@ -47,16 +32,16 @@ const SupplierManagementTemplate = () => {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          selectedKeys={[selectedKey]}
           defaultOpenKeys={["sub1"]}
           style={{ height: "100%", borderInlineEnd: 0 }}
           items={menuItems}
-          onClick={({ key }) => setSelectedKey(key)}
+          onClick={handleMenuClick}
         />
       </Sider>
       <Layout>
         <Content style={{ margin: "16px" }}>
-          <Content style={{ margin: "16px" }}>{renderContent()}</Content>
+          <Outlet />
         </Content>
       </Layout>
     </Layout>

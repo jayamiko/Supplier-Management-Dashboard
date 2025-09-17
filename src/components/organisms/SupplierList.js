@@ -1,8 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import { Row, Col, Button, Space } from "antd";
 import StatCard from "../atoms/StatCard";
 import SearchInput from "../atoms/SearchInput";
 import SupplierActions from "../molecules/SupplierActions";
-import SupplierTable from "../molecules/DataTable";
+import DataTable from "../molecules/DataTable";
 import TitleText from "../atoms/TitleText";
 import { UserOutlined } from "@ant-design/icons";
 import DropdownInput from "../molecules/DropdownInput";
@@ -16,6 +17,7 @@ import NewSupplierModal from "../molecules/NewSupplierModal";
 import { supplierListColumn } from "../../constants/columns";
 
 const SupplierList = () => {
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
@@ -73,7 +75,11 @@ const SupplierList = () => {
         <SupplierActions />
       </Row>
 
-      <SupplierTable columns={supplierListColumn} data={supplierData} />
+      <DataTable
+        columns={supplierListColumn}
+        data={supplierData}
+        onRowClick={(record) => navigate(`/supplier/${record.key}`)}
+      />
     </div>
   );
 };
