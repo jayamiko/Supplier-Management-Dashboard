@@ -3,6 +3,7 @@ import { Layout, Menu } from "antd";
 import SupplierList from "../organisms/SupplierList";
 import menuItems from "../../constants/menuItems";
 import ReviewAndApproval from "../organisms/ReviewAndApproval";
+import Configurations from "../organisms/Configurations";
 
 const { Content, Sider } = Layout;
 
@@ -18,7 +19,7 @@ const SupplierManagementTemplate = () => {
       case "supplier-review":
         return <ReviewAndApproval />;
       case "supplier-config":
-        return <h2>Configurations</h2>;
+        return <Configurations />;
       case "funnel-overview":
         return <h2>Funnel Overview</h2>;
       case "funnel-reports":
@@ -35,9 +36,12 @@ const SupplierManagementTemplate = () => {
           style={{
             display: "flex",
             justifyContent: "center",
+            padding: "10px",
           }}
         >
-          <h1 style={{ color: "white" }}>ALISA</h1>
+          <h1 style={{ color: "white", fontSize: "40px", fontWeight: "bold" }}>
+            ALISA
+          </h1>
         </div>
         <hr />
         <Menu

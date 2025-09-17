@@ -1,4 +1,4 @@
-import { Radio } from "antd";
+import { Checkbox, Radio } from "antd";
 import StatusTag from "../components/atoms/StatusTag";
 
 export const supplierListColumn = [
@@ -32,5 +32,32 @@ export const reviewApprovalColumn = [
   {
     title: "Status",
     dataIndex: "status",
+  },
+];
+
+export const configurationsStagesColumns = [
+  { title: "⊕", dataIndex: "no", key: "no" },
+  { title: "ID", dataIndex: "id", key: "id" },
+  { title: "Name", dataIndex: "name", key: "name" },
+  { title: "Stages", dataIndex: "stages", key: "stages" },
+  {
+    title: "Active",
+    dataIndex: "active",
+    key: "active",
+    render: (_, record) => <Checkbox checked={record.active} />,
+  },
+];
+
+export const configurationsStageDetailColumns = [
+  { title: "⊕", dataIndex: "no", key: "no" },
+  { title: "ID", dataIndex: "id", key: "id" },
+  { title: "Name", dataIndex: "name", key: "name" },
+  { title: "SLA", dataIndex: "sla", key: "sla" },
+  { title: "UoM", dataIndex: "uom", key: "uom" },
+  {
+    title: "Active",
+    dataIndex: "active",
+    key: "active",
+    render: (_, record) => <Checkbox checked={record.active} />,
   },
 ];
