@@ -23,3 +23,14 @@ export const supplierAddressColumn = [
     render: (_, record) => <Radio checked={record.main} />,
   },
 ];
+
+export const reviewApprovalColumn = [
+  { title: "Process Name", dataIndex: "processName" },
+  { title: "Customer ID", dataIndex: "customerID" },
+  { title: "CustomerName", dataIndex: "customerName" },
+  { title: "Stage / Flow", dataIndex: "flow" },
+  {
+    title: "Status",
+    dataIndex: "status",
+  },
+];

@@ -1,13 +1,15 @@
 import { ExportOutlined, MenuOutlined } from "@ant-design/icons";
 import { Button, Space } from "antd";
 
-const SupplierActions = () => {
+const SupplierActions = ({ canExport = true }) => {
   return (
     <Space>
-      <Button type="primary">
-        <ExportOutlined />
-        Export
-      </Button>
+      {!!canExport && (
+        <Button type="primary">
+          <ExportOutlined />
+          Export
+        </Button>
+      )}
       <MenuOutlined />
     </Space>
   );

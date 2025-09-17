@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Layout, Menu } from "antd";
 import SupplierList from "../organisms/SupplierList";
 import menuItems from "../../constants/menuItems";
+import ReviewAndApproval from "../organisms/ReviewAndApproval";
 
 const { Content, Sider } = Layout;
 
@@ -15,7 +16,7 @@ const SupplierManagementTemplate = () => {
       case "supplier-dashboard":
         return <h2>Supplier Dashboard</h2>;
       case "supplier-review":
-        return <h2>Review & Approvals</h2>;
+        return <ReviewAndApproval />;
       case "supplier-config":
         return <h2>Configurations</h2>;
       case "funnel-overview":

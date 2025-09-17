@@ -7,7 +7,7 @@ const SearchInput = ({ placeholder, onSearch }) => {
       placeholder={placeholder}
       onSearch={onSearch}
       allowClear
-      style={{ width: 300 }}
+      className="w-80 rounded-2xl border-black"
       prefix={<SearchOutlined />}
     />
   );

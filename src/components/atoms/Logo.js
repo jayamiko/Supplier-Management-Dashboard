@@ -1,10 +1,10 @@
 import { Row } from "antd";
-import TitlePage from "./TitlePage";
+import TitleText from "./TitleText";
 
 function Logo() {
   return (
     <Row justify="center" align="middle">
-      <TitlePage label="ALISA" level={1} />
+      <TitleText label="ALISA" level={1} />
     </Row>
   );
 }

@@ -3,7 +3,7 @@ import StatCard from "../atoms/StatCard";
 import SearchInput from "../atoms/SearchInput";
 import SupplierActions from "../molecules/SupplierActions";
 import SupplierTable from "../molecules/DataTable";
-import TitlePage from "../atoms/TitlePage";
+import TitleText from "../atoms/TitleText";
 import { UserOutlined } from "@ant-design/icons";
 import DropdownInput from "../molecules/DropdownInput";
 import {
@@ -34,7 +34,7 @@ const SupplierList = () => {
   return (
     <div>
       <Row justify="space-between" align="middle" style={{ margin: "20px 0" }}>
-        <TitlePage label="Supplier List" level={5} />
+        <TitleText label="Supplier List" level={5} />
         <Button type="primary" onClick={showModal}>
           <UserOutlined /> New Supplier
         </Button>
