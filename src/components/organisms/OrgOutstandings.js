@@ -1,20 +1,13 @@
 import { Card, Table } from "antd";
 import AtomHeading from "../atoms/AtomHeading";
+import { supplierDetailOutstandingColumns } from "../../constants/columns";
 
 const OrgOutstandings = ({ items }) => {
-  const columns = [
-    { title: "#", dataIndex: "idx", width: 50 },
-    { title: "Invoice Number", dataIndex: "invoice" },
-    { title: "Project Name", dataIndex: "project" },
-    { title: "Amount", dataIndex: "amount", align: "right" },
-    { title: "Aging (days)", dataIndex: "aging", align: "right" },
-  ];
-
   return (
-    <Card size="small" className="mb-4 border-black">
+    <Card size="small" className="mb-4">
       <AtomHeading>Outstandings</AtomHeading>
       <Table
-        columns={columns}
+        columns={supplierDetailOutstandingColumns}
         dataSource={items}
         pagination={false}
         rowKey={(r) => r.invoice}

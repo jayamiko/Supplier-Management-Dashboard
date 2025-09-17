@@ -1,9 +1,8 @@
-import { Form, Modal, Row } from "antd";
+import { Form, Modal } from "antd";
 import FieldInput from "./FieldInput";
-import DataTable from "./DataTable";
-import { supplierAddressColumn } from "../../constants/columns";
-import { supplierAddressData } from "../../data/supplier";
 import UploadLogo from "../atoms/UploadLogo";
+import { supplierDetailOverviewTabItems } from "../../constants/supplier";
+import DynamicTabs from "./DynamicTabs";
 
 function NewSupplierModal({ isModalOpen, handleOk, handleCancel }) {
   return (
@@ -26,7 +25,7 @@ function NewSupplierModal({ isModalOpen, handleOk, handleCancel }) {
         </div>
       </Form>
 
-      <DataTable columns={supplierAddressColumn} data={supplierAddressData} />
+      <DynamicTabs tabItems={supplierDetailOverviewTabItems} />
 
       <hr />
     </Modal>

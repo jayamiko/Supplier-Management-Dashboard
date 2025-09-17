@@ -3,7 +3,7 @@ import AtomHeading from "../atoms/AtomHeading";
 import { renderStars } from "../../helpers/renderStars";
 
 const OrgRatings = ({ ratings }) => (
-  <Card size="small" className="mb-4 border-black">
+  <Card size="small" className="mb-4">
     <AtomHeading>Performance Ratings</AtomHeading>
     <div className="space-y-3 mt-3">
       {ratings.map((r, i) => (

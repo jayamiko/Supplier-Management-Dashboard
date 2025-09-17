@@ -4,7 +4,7 @@ import AtomHeading from "../atoms/AtomHeading";
 const OrgStagePanel = ({ stage, onNext }) => {
   const steps = ["Draft", "In Review", "In Assessment", "Active"];
   return (
-    <Card size="small" className="mb-4 border-black">
+    <Card size="small" className="mb-4">
       <div className="flex items-center justify-between">
         <AtomHeading>Stage: Supplier Creation</AtomHeading>
         <div className="text-sm text-gray-500">SLA: 72 hour(s)</div>
