@@ -19,7 +19,7 @@ const menuItems = [
       { key: "supplier-management/supplier-dashboard", label: "Dashboard" },
       { key: "supplier-management/supplier-list", label: "Supplier List" },
       {
-        key: "supplier-management/review-approval",
+        key: "supplier-management/review-approvals",
         label: "Review & Approvals",
       },
       { key: "supplier-management/configurations", label: "Configurations" },

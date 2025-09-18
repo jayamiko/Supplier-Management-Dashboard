@@ -31,7 +31,7 @@ export const reviewApprovalColumn = [
   { title: "Stage / Flow", dataIndex: "flow" },
   {
     title: "Status",
-    dataIndex: "status",
+    dataIndex: "statusInfo",
   },
 ];
 

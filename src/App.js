@@ -20,7 +20,7 @@ function App() {
           element={<SupplierList />}
         />
         <Route
-          path="supplier-management/review-approval"
+          path="supplier-management/review-approvals"
           element={<ReviewAndApproval />}
         />
         <Route
@@ -34,7 +34,7 @@ function App() {
           element={<SupplierDetailManagementPage />}
         />
         <Route
-          path="supplier-management/review-approval/:id"
+          path="supplier-management/review-approvals/:id"
           element={<ReviewDetailManagementPage />}
         />
       </Route>

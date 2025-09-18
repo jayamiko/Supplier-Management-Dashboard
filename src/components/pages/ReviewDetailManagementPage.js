@@ -20,10 +20,18 @@ import OrgDataTable from "../organisms/OrgDataTable";
 import DynamicTabs from "../molecules/DynamicTabs";
 import { renderStars } from "../../helpers/renderStars";
 import HistoryTimeline from "../organisms/HistoryTimeline";
-import { historyTimelineData } from "../../data/reviewApprovals";
+import {
+  historyTimelineData,
+  reviewApprovalData,
+} from "../../data/reviewApprovals";
+import { useParams } from "react-router-dom";
 
 export default function ReviewDetailManagementPage() {
+  const { id } = useParams();
+
   const [activeTab, setActiveTab] = useState("overview");
+
+  const detail = reviewApprovalData?.filter((data) => data.id == id)[0];
 
   const stats = [
     { label: "Since:", value: "01 Jan 2025" },
@@ -43,19 +51,15 @@ export default function ReviewDetailManagementPage() {
               { label: "Supplier Management", path: "/" },
               {
                 label: "Review & Apprivals",
-                path: "supplier-management/review-approvals",
+                path: "/supplier-management/review-approvals",
               },
-              { label: "Supplier Detail" },
+              { label: detail?.processName },
             ]}
           />
         </div>
 
         <div className="px-6 py-4">
-          <ReviewDetailHeader
-            name="PT Setroom Indonesia"
-            supplierID={61000012}
-            status="Active"
-          />
+          <ReviewDetailHeader data={detail} />
         </div>
 
         <div className="px-6 pb-6">

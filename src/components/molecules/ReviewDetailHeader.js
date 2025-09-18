@@ -1,8 +1,9 @@
 import { EditOutlined } from "@ant-design/icons";
 import AtomAvatar from "../atoms/AtomAvatar";
 import AtomBadge from "../atoms/AtomBadge";
+import StatusTag from "../atoms/StatusTag";
 
-const ReviewDetailHeader = ({ name, supplierID, status }) => (
+const ReviewDetailHeader = ({ data }) => (
   <div className="flex items-start gap-4 p-4">
     <div className="flex-none">
       <AtomAvatar size={72} shape="square" />
@@ -11,18 +12,16 @@ const ReviewDetailHeader = ({ name, supplierID, status }) => (
       <div className="flex items-center gap-4">
         <div>
           <h1 className="text-2xl font-bold text-gray-800">
-            {name}
+            {data?.customerName}
             <EditOutlined className="ml-2 text-base" />
           </h1>
           <div className="text-gray-500">Supplier ID</div>
-          <div className="text-black">{supplierID}</div>
+          <div className="text-black">{data?.customerID}</div>
         </div>
         <div className="flex flex-row ml-auto">
-          <AtomBadge color="white">Setroom</AtomBadge>
+          <AtomBadge color="white">{data?.nickName}</AtomBadge>
           <br />
-          <AtomBadge color={status === "Active" ? "green" : "orange"}>
-            {status}
-          </AtomBadge>
+          {data.status && <StatusTag status={data.status} />}
         </div>
       </div>
     </div>

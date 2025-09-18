@@ -39,7 +39,7 @@ const ReviewAndApproval = () => {
         columns={reviewApprovalColumn}
         data={reviewApprovalData}
         onRowClick={(record) =>
-          navigate(`/supplier-management/review-approval/${record.id}`)
+          navigate(`/supplier-management/review-approvals/${record.id}`)
         }
       />
     </div>

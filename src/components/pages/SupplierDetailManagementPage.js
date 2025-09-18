@@ -17,12 +17,19 @@ import { supplierDetailOverviewTabItems } from "../../constants/supplier";
 import SearchInput from "../atoms/SearchInput";
 import DataTable from "../molecules/DataTable";
 import { supplierDetailMaterialCatalogColumns } from "../../constants/columns";
-import { supplierDetailMaterialCatalogData } from "../../data/supplier";
+import {
+  supplierData,
+  supplierDetailMaterialCatalogData,
+} from "../../data/supplier";
 import MaterialCatalogActions from "../molecules/MaterialCatalogActions";
+import { useParams } from "react-router-dom";
 
 export default function SupplierDetailManagementPage() {
+  const { id } = useParams();
   const [activeTab, setActiveTab] = useState("overview");
   const [stage, setStage] = useState(0);
+
+  const detail = supplierData?.filter((data) => data.id == id)[0];
 
   const outstandingItems = [
     {
@@ -62,10 +69,10 @@ export default function SupplierDetailManagementPage() {
           <Breadcrumbs
             items={[
               { label: <HomeOutlined />, path: "/" },
-              { label: "Supplier Management", path: "/" },
+              { label: "Supplier Management", path: "/supplier-management" },
               {
                 label: "Supplier List",
-                path: "supplier-management/supplier-list",
+                path: "/supplier-management/supplier-list",
               },
               { label: "Supplier Detail" },
             ]}
@@ -85,11 +92,7 @@ export default function SupplierDetailManagementPage() {
         </div>
 
         <div className="px-6 py-4">
-          <SupplierDetailHeader
-            name="PT Setroom Indonesia"
-            address="Fatmawati Raya St, 33 · Jakarta Selatan"
-            status="Active"
-          />
+          <SupplierDetailHeader data={detail} />
         </div>
 
         <div className="px-6 pb-6">
