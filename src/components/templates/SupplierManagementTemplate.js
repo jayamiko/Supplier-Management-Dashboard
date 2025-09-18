@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Layout, Menu } from "antd";
 import { Outlet, useNavigate } from "react-router-dom";
 import menuItems from "../../constants/menuItems";
+import Sidebar from "../organisms/SideBar";
 
 const { Content, Sider } = Layout;
 
@@ -29,14 +30,10 @@ const SupplierManagementTemplate = () => {
           </h1>
         </div>
         <hr />
-        <Menu
-          theme="dark"
-          mode="inline"
-          selectedKeys={[selectedKey]}
-          defaultOpenKeys={["sub1"]}
-          style={{ height: "100%", borderInlineEnd: 0 }}
-          items={menuItems}
-          onClick={handleMenuClick}
+        <Sidebar
+          menuItems={menuItems}
+          onMenuClick={handleMenuClick}
+          username="John Doe"
         />
       </Sider>
       <Layout>

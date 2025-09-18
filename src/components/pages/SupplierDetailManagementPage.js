@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { HomeOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  LeftCircleOutlined,
+  RightCircleOutlined,
+} from "@ant-design/icons";
 import Breadcrumbs from "../molecules/BreadCrumb";
 import MoleculeTabs from "../molecules/Tabs";
 import TabPane from "antd/es/tabs/TabPane";
 import OrgOutstandings from "../organisms/OrgOutstandings";
 import OrgPanelSteps from "../organisms/OrgPanelSteps";
 import OrgRatings from "../organisms/OrgRatings";
-import { Card, Row, Space } from "antd";
+import { Button, Card, Row, Space } from "antd";
 import SupplierDetailHeader from "../molecules/SupplierDetailHeader";
 import DynamicTabs from "../molecules/DynamicTabs";
 import { supplierDetailOverviewTabItems } from "../../constants/supplier";
@@ -54,7 +58,7 @@ export default function SupplierDetailManagementPage() {
   return (
     <div className="min-h-screen bg-gray-100 p-6">
       <div className="max-w-7xl mx-auto bg-white shadow-sm rounded-md border">
-        <div className="border-b px-6 py-3">
+        <div className="border-b px-6 py-3 border">
           <Breadcrumbs
             items={[
               { label: <HomeOutlined />, path: "/" },
@@ -65,7 +69,19 @@ export default function SupplierDetailManagementPage() {
               },
               { label: "Supplier Detail" },
             ]}
-          />
+          >
+            <div className="space-x-2">
+              {" "}
+              <Button type="primary" className="!bg-red-600 hover:!bg-red-700">
+                Block / Unblock
+              </Button>
+              <Space>
+                <LeftCircleOutlined className="text-gray-500 text-lg" />
+                <RightCircleOutlined className="text-gray-500 text-lg" />
+              </Space>
+              <span className="text-gray-500">1 of 32</span>
+            </div>
+          </Breadcrumbs>
         </div>
 
         <div className="px-6 py-4">
