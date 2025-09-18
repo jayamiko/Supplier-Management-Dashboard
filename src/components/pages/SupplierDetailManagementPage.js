@@ -14,7 +14,6 @@ import { Button, Card, Col, Row, Space } from "antd";
 import SupplierDetailHeader from "../molecules/SupplierDetailHeader";
 import DynamicTabs from "../molecules/DynamicTabs";
 import {
-  supplierDataStats,
   supplierDetailOverviewTabItems,
   supplierInvoicesDataStats,
   supplierOrdersDataStats,
@@ -22,7 +21,6 @@ import {
 import SearchInput from "../atoms/SearchInput";
 import DataTable from "../molecules/DataTable";
 import {
-  reviewApprovalColumn,
   supplierDetailInvoicesColumns,
   supplierDetailMaterialCatalogColumns,
   supplierDetailOrdersColumns,
@@ -33,10 +31,10 @@ import {
 } from "../../data/supplier";
 import MaterialCatalogActions from "../molecules/MaterialCatalogActions";
 import { useParams } from "react-router-dom";
-import StatCard from "../atoms/StatCard";
 import OrderCard from "../atoms/OrderCard";
 import SupplierReviewActions from "../molecules/SupplierReviewActions";
 import AssessmentTemplate from "../templates/AssessmentTemplate";
+import BlockSupplierModal from "../molecules/BlockSupplierModal";
 
 export default function SupplierDetailManagementPage() {
   const { id } = useParams();
@@ -44,6 +42,21 @@ export default function SupplierDetailManagementPage() {
   const [stage, setStage] = useState(0);
 
   const detail = supplierData?.filter((data) => data.id == id)[0];
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+
+  const handleOk = () => {
+    console.log("Supplier saved!");
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
 
   const outstandingItems = [
     {
@@ -92,10 +105,20 @@ export default function SupplierDetailManagementPage() {
             ]}
           >
             <div className="space-x-2">
-              {" "}
-              <Button type="primary" className="!bg-red-600 hover:!bg-red-700">
+              <Button
+                type="primary"
+                className="!bg-red-600 hover:!bg-red-700"
+                onClick={showModal}
+              >
                 Block / Unblock
               </Button>
+
+              <BlockSupplierModal
+                isModalOpen={isModalOpen}
+                handleOk={handleOk}
+                handleCancel={handleCancel}
+              />
+
               <Space>
                 <LeftCircleOutlined className="text-gray-500 text-lg" />
                 <RightCircleOutlined className="text-gray-500 text-lg" />

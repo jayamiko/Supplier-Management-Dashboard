@@ -1,13 +1,13 @@
 import { Form, Modal } from "antd";
 import FieldInput from "./FieldInput";
-import { supplierDetailOverviewTabItems } from "../../constants/supplier";
+import { blockSupplierTabItems } from "../../constants/supplier";
 import DynamicTabs from "./DynamicTabs";
 import AtomAvatar from "../atoms/AtomAvatar";
 
-function NewSupplierModal({ isModalOpen, handleOk, handleCancel }) {
+function BlockSupplierModal({ isModalOpen, handleOk, handleCancel }) {
   return (
     <Modal
-      title="New Supplier"
+      title="Block Supplier"
       open={isModalOpen}
       onOk={handleOk}
       onCancel={handleCancel}
@@ -22,16 +22,20 @@ function NewSupplierModal({ isModalOpen, handleOk, handleCancel }) {
           </div>
           <div className="w-full flex flex-col justify-center-center">
             <FieldInput label="Supplier Name" name="name" />
-            <FieldInput label="Nick Name" name="nickname" width="60%" />
+            <FieldInput
+              label="Supplier Category"
+              name="supplierCAtegory"
+              width="60%"
+            />
           </div>
         </div>
       </Form>
 
-      <DynamicTabs tabItems={supplierDetailOverviewTabItems} />
+      <DynamicTabs tabItems={blockSupplierTabItems} />
 
       <hr />
     </Modal>
   );
 }
 
-export default NewSupplierModal;
+export default BlockSupplierModal;

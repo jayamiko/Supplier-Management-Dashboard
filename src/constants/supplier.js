@@ -18,6 +18,10 @@ import { DollarCircleOutlined, PlusCircleFilled } from "@ant-design/icons";
 import React from "react";
 import { RiTeamFill } from "react-icons/ri";
 import { BsStopwatchFill } from "react-icons/bs";
+import HistoryTimeline from "../components/organisms/HistoryTimeline";
+import { historyTimelineData } from "../data/reviewApprovals";
+import FileUploadList from "../components/molecules/FileUploadList";
+import TextArea from "../components/atoms/TextArea";
 
 export const supplierStatusList = [
   {
@@ -175,5 +179,23 @@ export const supplierDetailOverviewTabItems = [
         columns={supplierOverviewOtherColumns}
       />
     ),
+  },
+];
+
+export const blockSupplierTabItems = [
+  {
+    key: 1,
+    label: "Reason",
+    content: <TextArea rows={4} placeholder="Block Supplier Reason" />,
+  },
+  {
+    key: 2,
+    label: "Documents",
+    content: <FileUploadList />,
+  },
+  {
+    key: 3,
+    label: "History",
+    content: <HistoryTimeline history={historyTimelineData} />,
   },
 ];

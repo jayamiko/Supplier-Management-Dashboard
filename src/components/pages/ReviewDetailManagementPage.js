@@ -3,7 +3,7 @@ import { HomeOutlined } from "@ant-design/icons";
 import Breadcrumbs from "../molecules/BreadCrumb";
 import MoleculeTabs from "../molecules/Tabs";
 import TabPane from "antd/es/tabs/TabPane";
-import { Button, Card, Col, Row, Space } from "antd";
+import { Card, Col, Row, Space } from "antd";
 import SearchInput from "../atoms/SearchInput";
 import DataTable from "../molecules/DataTable";
 import {
@@ -15,12 +15,10 @@ import { supplierDetailMaterialCatalogData } from "../../data/supplier";
 import MaterialCatalogActions from "../molecules/MaterialCatalogActions";
 import ReviewDetailHeader from "../molecules/ReviewDetailHeader";
 import OrgPanelSteps from "../organisms/OrgPanelSteps";
-import DropdownInput from "../molecules/DropdownInput";
 import {
   supplierDetailOverviewTabItems,
   supplierInvoicesDataStats,
   supplierOrdersDataStats,
-  supplierReviewList,
 } from "../../constants/supplier";
 import OrgDataTable from "../organisms/OrgDataTable";
 import DynamicTabs from "../molecules/DynamicTabs";
@@ -121,7 +119,7 @@ export default function ReviewDetailManagementPage() {
                   >
                     <SupplierReviewActions />
                   </OrgPanelSteps>
-                  <HistoryTimeline history={historyTimelineData} />
+                  <HistoryTimeline withTitle history={historyTimelineData} />
                 </div>
               </div>
             </TabPane>

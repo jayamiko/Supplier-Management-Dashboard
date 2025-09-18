@@ -1,9 +1,12 @@
 import { Card, Timeline } from "antd";
 import { UserOutlined, MessageOutlined } from "@ant-design/icons";
 
-const HistoryTimeline = ({ history }) => {
+const HistoryTimeline = ({ history, withTitle = false }) => {
   return (
-    <Card title="History" className="max-h-64 overflow-y-auto">
+    <Card
+      title={withTitle ? "History" : null}
+      className="max-h-64 overflow-y-auto"
+    >
       <Timeline mode="left">
         {history.map((item, idx) => (
           <Timeline.Item

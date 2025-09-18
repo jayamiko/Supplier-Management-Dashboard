@@ -1,5 +1,6 @@
-import { Button, Card, Input, Steps } from "antd";
+import { Button, Card, Steps } from "antd";
 import AtomHeading from "../atoms/AtomHeading";
+import TextArea from "../atoms/TextArea";
 
 const OrgPanelSteps = ({
   title,
@@ -59,11 +60,7 @@ const OrgPanelSteps = ({
         {hasNote && (
           <>
             <div className="mt-4">
-              <Input.TextArea
-                rows={2}
-                placeholder="Notes"
-                className="border-black"
-              />
+              <TextArea rows={2} placeholder="Note" />
             </div>
             {onNext && (
               <div className="mt-3 text-right">
