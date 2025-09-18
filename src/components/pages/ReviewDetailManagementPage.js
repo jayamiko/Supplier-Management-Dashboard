@@ -6,7 +6,11 @@ import TabPane from "antd/es/tabs/TabPane";
 import { Button, Card, Col, Row, Space } from "antd";
 import SearchInput from "../atoms/SearchInput";
 import DataTable from "../molecules/DataTable";
-import { supplierDetailMaterialCatalogColumns } from "../../constants/columns";
+import {
+  supplierDetailInvoicesColumns,
+  supplierDetailMaterialCatalogColumns,
+  supplierDetailOrdersColumns,
+} from "../../constants/columns";
 import { supplierDetailMaterialCatalogData } from "../../data/supplier";
 import MaterialCatalogActions from "../molecules/MaterialCatalogActions";
 import ReviewDetailHeader from "../molecules/ReviewDetailHeader";
@@ -14,6 +18,8 @@ import OrgPanelSteps from "../organisms/OrgPanelSteps";
 import DropdownInput from "../molecules/DropdownInput";
 import {
   supplierDetailOverviewTabItems,
+  supplierInvoicesDataStats,
+  supplierOrdersDataStats,
   supplierReviewList,
 } from "../../constants/supplier";
 import OrgDataTable from "../organisms/OrgDataTable";
@@ -25,6 +31,9 @@ import {
   reviewApprovalData,
 } from "../../data/reviewApprovals";
 import { useParams } from "react-router-dom";
+import SupplierReviewActions from "../molecules/SupplierReviewActions";
+import AssessmentTemplate from "../templates/AssessmentTemplate";
+import OrderCard from "../atoms/OrderCard";
 
 export default function ReviewDetailManagementPage() {
   const { id } = useParams();
@@ -110,29 +119,7 @@ export default function ReviewDetailManagementPage() {
                     ]}
                     hasNote
                   >
-                    <div className="mt-3 flex justify-between">
-                      <div>
-                        <Space>
-                          <DropdownInput items={supplierReviewList} />
-
-                          <Button
-                            type="primary"
-                            className="!bg-red-600 hover:!bg-red-700"
-                          >
-                            Return to
-                          </Button>
-                        </Space>
-                      </div>
-                      <div>
-                        {" "}
-                        <Button
-                          type="primary"
-                          className="!bg-green-500 hover:!bg-green-600"
-                        >
-                          Approve
-                        </Button>
-                      </div>
-                    </div>
+                    <SupplierReviewActions />
                   </OrgPanelSteps>
                   <HistoryTimeline history={historyTimelineData} />
                 </div>
@@ -140,9 +127,47 @@ export default function ReviewDetailManagementPage() {
             </TabPane>
 
             <TabPane tab="Assessment" key="assessment">
-              <Card>
-                <p>Assessment table and quick actions.</p>
-              </Card>
+              <div className="grid grid-cols-12 gap-4">
+                <div className="col-span-6">
+                  <OrgPanelSteps
+                    title="Stage: Supplier Creation"
+                    stage={1}
+                    steps={["Draft", "In Review", "In Assessment", "Active"]}
+                    descriptions={[
+                      "Jan 01, 2025 08:20:12",
+                      "Time Remaining 05:00:10",
+                      "",
+                      "",
+                    ]}
+                  />
+                </div>
+
+                <div className="col-span-6">
+                  <OrgPanelSteps
+                    title="Workflow: Supplier Review"
+                    stage={2}
+                    steps={[
+                      "Sales Manager",
+                      "Marketing",
+                      "Data Management",
+                      "SSO",
+                    ]}
+                    descriptions={[
+                      "Jan 01, 2025 08:20:12",
+                      "Jan 01, 2025 09:20:12",
+                      "Time Remaining 05:00:10",
+                      "",
+                    ]}
+                    hasNote
+                  >
+                    <SupplierReviewActions />
+                  </OrgPanelSteps>
+                </div>
+              </div>
+
+              <div>
+                <AssessmentTemplate />
+              </div>
             </TabPane>
 
             <TabPane tab="Material Catalog" key="catalog">
@@ -167,15 +192,34 @@ export default function ReviewDetailManagementPage() {
             </TabPane>
 
             <TabPane tab="Orders" key="orders">
-              <Card>
-                <p>Orders table and quick actions.</p>
-              </Card>
+              <Row gutter={16} className="my-4">
+                {supplierOrdersDataStats.map((stat, idx) => (
+                  <Col key={idx} flex="20%">
+                    <OrderCard title={stat.title} value={stat.value} />
+                  </Col>
+                ))}
+
+                <div className="mt-4 w-full">
+                  <DataTable columns={supplierDetailOrdersColumns} data={[]} />
+                </div>
+              </Row>
             </TabPane>
 
             <TabPane tab="Invoices" key="invoices">
-              <Card>
-                <p>Invoices table and outstanding summary.</p>
-              </Card>
+              <Row gutter={16} className="my-4">
+                {supplierInvoicesDataStats.map((stat, idx) => (
+                  <Col key={idx} flex="20%">
+                    <OrderCard title={stat.title} value={stat.value} />
+                  </Col>
+                ))}
+
+                <div className="mt-4 w-full">
+                  <DataTable
+                    columns={supplierDetailInvoicesColumns}
+                    data={[]}
+                  />
+                </div>
+              </Row>
             </TabPane>
 
             <TabPane tab="Projects" key="projects">

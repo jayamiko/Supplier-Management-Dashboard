@@ -134,3 +134,17 @@ export const supplierDetailMaterialCatalogColumns = [
     render: (_, record) => record.action(),
   },
 ];
+
+export const supplierDetailOrdersColumns = [
+  { title: "Order ID (PO)", dataIndex: "orderId" },
+  { title: "Shipment Date", dataIndex: "shipmentDate" },
+  { title: "Order Status", dataIndex: "orderStatus" },
+  { title: "Estimated Delivery Date", dataIndex: "estimatedDeliveryDate" },
+];
+
+export const supplierDetailInvoicesColumns = [
+  { title: "Order ID (PO)", dataIndex: "orderId" },
+  { title: "Invoice No", dataIndex: "invoiceNo" },
+  { title: "Received Date", dataIndex: "receivedDate" },
+  { title: "Estimated Delivery Date", dataIndex: "estimatedDeliveryDate" },
+];

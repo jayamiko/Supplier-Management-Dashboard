@@ -84,6 +84,48 @@ export const supplierDataStats = [
   },
 ];
 
+export const supplierOrdersDataStats = [
+  {
+    title: "Total Order",
+    value: "4,257",
+  },
+  {
+    title: "On Time Delivery",
+    value: "1,869",
+  },
+  {
+    title: "Late Delivery",
+    value: "999",
+  },
+  {
+    title: "Order In Progress",
+    value: "999",
+  },
+  {
+    title: "Pending",
+    value: "999",
+  },
+];
+
+export const supplierInvoicesDataStats = [
+  {
+    title: "Total Invoices",
+    value: "4,257",
+  },
+  {
+    title: "In Progress",
+    value: "1,869",
+  },
+  {
+    title: "Paid",
+    value: "999",
+  },
+  {
+    title: "Outstanding",
+    value: "999",
+  },
+];
+
 export const supplierDetailOverviewTabItems = [
   {
     key: 1,

@@ -10,19 +10,31 @@ import TabPane from "antd/es/tabs/TabPane";
 import OrgOutstandings from "../organisms/OrgOutstandings";
 import OrgPanelSteps from "../organisms/OrgPanelSteps";
 import OrgRatings from "../organisms/OrgRatings";
-import { Button, Card, Row, Space } from "antd";
+import { Button, Card, Col, Row, Space } from "antd";
 import SupplierDetailHeader from "../molecules/SupplierDetailHeader";
 import DynamicTabs from "../molecules/DynamicTabs";
-import { supplierDetailOverviewTabItems } from "../../constants/supplier";
+import {
+  supplierDataStats,
+  supplierDetailOverviewTabItems,
+  supplierInvoicesDataStats,
+  supplierOrdersDataStats,
+} from "../../constants/supplier";
 import SearchInput from "../atoms/SearchInput";
 import DataTable from "../molecules/DataTable";
-import { supplierDetailMaterialCatalogColumns } from "../../constants/columns";
+import {
+  reviewApprovalColumn,
+  supplierDetailInvoicesColumns,
+  supplierDetailMaterialCatalogColumns,
+  supplierDetailOrdersColumns,
+} from "../../constants/columns";
 import {
   supplierData,
   supplierDetailMaterialCatalogData,
 } from "../../data/supplier";
 import MaterialCatalogActions from "../molecules/MaterialCatalogActions";
 import { useParams } from "react-router-dom";
+import StatCard from "../atoms/StatCard";
+import OrderCard from "../atoms/OrderCard";
 
 export default function SupplierDetailManagementPage() {
   const { id } = useParams();
@@ -147,15 +159,34 @@ export default function SupplierDetailManagementPage() {
             </TabPane>
 
             <TabPane tab="Orders" key="orders">
-              <Card>
-                <p>Orders table and quick actions.</p>
-              </Card>
+              <Row gutter={16} className="my-4">
+                {supplierOrdersDataStats.map((stat, idx) => (
+                  <Col key={idx} flex="20%">
+                    <OrderCard title={stat.title} value={stat.value} />
+                  </Col>
+                ))}
+
+                <div className="mt-4 w-full">
+                  <DataTable columns={supplierDetailOrdersColumns} data={[]} />
+                </div>
+              </Row>
             </TabPane>
 
             <TabPane tab="Invoices" key="invoices">
-              <Card>
-                <p>Invoices table and outstanding summary.</p>
-              </Card>
+              <Row gutter={16} className="my-4">
+                {supplierInvoicesDataStats.map((stat, idx) => (
+                  <Col key={idx} flex="20%">
+                    <OrderCard title={stat.title} value={stat.value} />
+                  </Col>
+                ))}
+
+                <div className="mt-4 w-full">
+                  <DataTable
+                    columns={supplierDetailInvoicesColumns}
+                    data={[]}
+                  />
+                </div>
+              </Row>
             </TabPane>
 
             <TabPane tab="Projects" key="projects">

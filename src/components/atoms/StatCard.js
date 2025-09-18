@@ -29,7 +29,7 @@ const StatCard = ({ title, value, prefix, trend, percent, rightIcon }) => {
         </p>
       </div>
 
-      <div className="text-2xl text-gray-400">{rightIcon}</div>
+      {rightIcon && <div className="text-2xl text-gray-400">{rightIcon}</div>}
     </Card>
   );
 };

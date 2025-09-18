@@ -13,7 +13,7 @@ const Sidebar = ({ menuItems, username, onMenuClick }) => {
   };
 
   return (
-    <Sider width={250} theme="dark" className="flex flex-col h-3/4">
+    <Sider width={250} theme="dark" className="flex flex-col h-4/5">
       <div className="flex flex-col h-full">
         <Menu
           theme="dark"

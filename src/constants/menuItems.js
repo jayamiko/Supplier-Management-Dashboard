@@ -7,7 +7,7 @@ import React from "react";
 
 const menuItems = [
   {
-    key: "dashboard",
+    key: "",
     icon: React.createElement(AppstoreOutlined),
     label: "Dashboard",
   },
