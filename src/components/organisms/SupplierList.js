@@ -58,6 +58,7 @@ const SupplierList = () => {
                 value={stat.value}
                 trend={stat.trend}
                 percent={stat.percent}
+                rightIcon={stat.icon}
               />
             </Col>
           );
@@ -78,7 +79,9 @@ const SupplierList = () => {
       <DataTable
         columns={supplierListColumn}
         data={supplierData}
-        onRowClick={(record) => navigate(`/supplier/${record.key}`)}
+        onRowClick={(record) =>
+          navigate(`/supplier-management/supplier-list/${record.id}`)
+        }
       />
     </div>
   );

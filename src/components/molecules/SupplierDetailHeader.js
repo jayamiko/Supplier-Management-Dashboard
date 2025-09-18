@@ -4,7 +4,7 @@ import AtomBadge from "../atoms/AtomBadge";
 const SupplierDetailHeader = ({ name, address, status }) => (
   <div className="flex items-start gap-4 p-4">
     <div className="flex-none">
-      <AtomAvatar size={72} />
+      <AtomAvatar size={72} shape="square" />
     </div>
     <div className="w-1/2">
       <div className="flex items-center gap-4">

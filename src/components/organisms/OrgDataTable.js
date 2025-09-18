@@ -1,7 +1,7 @@
 import { Button, Card, Table } from "antd";
 import AtomHeading from "../atoms/AtomHeading";
 
-const OrgDataTable = ({ title, data, columns }) => {
+const OrgDataTable = ({ title, data, columns, children }) => {
   return (
     <Card size="small" className="mb-4">
       <div className="flex items-center justify-between mb-3">
@@ -12,13 +12,17 @@ const OrgDataTable = ({ title, data, columns }) => {
           </Button>
         </div>
       </div>
-      <Table
-        columns={columns}
-        dataSource={data}
-        pagination={false}
-        rowKey={(r) => r.id}
-        size="small"
-      />
+      {children ? (
+        <>{children}</>
+      ) : (
+        <Table
+          columns={columns}
+          dataSource={data}
+          pagination={false}
+          rowKey={(r) => r.id}
+          size="small"
+        />
+      )}
     </Card>
   );
 };

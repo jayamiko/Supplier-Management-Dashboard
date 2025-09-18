@@ -4,7 +4,7 @@ import Breadcrumbs from "../molecules/BreadCrumb";
 import MoleculeTabs from "../molecules/Tabs";
 import TabPane from "antd/es/tabs/TabPane";
 import OrgOutstandings from "../organisms/OrgOutstandings";
-import OrgStagePanel from "../organisms/OrgStagePanel";
+import OrgPanelSteps from "../organisms/OrgPanelSteps";
 import OrgRatings from "../organisms/OrgRatings";
 import { Card, Row, Space } from "antd";
 import SupplierDetailHeader from "../molecules/SupplierDetailHeader";
@@ -12,14 +12,8 @@ import DynamicTabs from "../molecules/DynamicTabs";
 import { supplierDetailOverviewTabItems } from "../../constants/supplier";
 import SearchInput from "../atoms/SearchInput";
 import DataTable from "../molecules/DataTable";
-import {
-  supplierDetailMaterialCatalogColumns,
-  supplierListColumn,
-} from "../../constants/columns";
-import {
-  supplierData,
-  supplierDetailMaterialCatalogData,
-} from "../../data/supplier";
+import { supplierDetailMaterialCatalogColumns } from "../../constants/columns";
+import { supplierDetailMaterialCatalogData } from "../../data/supplier";
 import MaterialCatalogActions from "../molecules/MaterialCatalogActions";
 
 export default function SupplierDetailManagementPage() {
@@ -65,7 +59,10 @@ export default function SupplierDetailManagementPage() {
             items={[
               { label: <HomeOutlined />, path: "/" },
               { label: "Supplier Management", path: "/" },
-              { label: "Supplier List", path: "/supplier-list" },
+              {
+                label: "Supplier List",
+                path: "supplier-management/supplier-list",
+              },
               { label: "Supplier Detail" },
             ]}
           />
@@ -90,7 +87,14 @@ export default function SupplierDetailManagementPage() {
                 </div>
 
                 <div className="col-span-6">
-                  <OrgStagePanel stage={stage} onNext={handleNextStage} />
+                  <OrgPanelSteps
+                    title="Stage: Supplier Creation"
+                    stage={stage}
+                    steps={["Draft", "In Review", "In Assessment", "Active"]}
+                    descriptions={["Elapsed 05:00:10", "", "", ""]}
+                    onNext={handleNextStage}
+                    hasNote
+                  />
                   <OrgRatings ratings={ratings} />
                 </div>
               </div>

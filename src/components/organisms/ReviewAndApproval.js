@@ -1,13 +1,16 @@
 import { Row, Col } from "antd";
 import SearchInput from "../atoms/SearchInput";
-import SupplierTable from "../molecules/DataTable";
+import DataTable from "../molecules/DataTable";
 import TitleText from "../atoms/TitleText";
 import { reviewApprovalColumn } from "../../constants/columns";
 import { reviewApprovalData } from "../../data/reviewApprovals";
 import ReviewCard from "../atoms/ReviewCard";
 import SupplierActions from "../molecules/SupplierActions";
+import { useNavigate } from "react-router-dom";
 
 const ReviewAndApproval = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <Row justify="space-between" align="middle" style={{ margin: "20px 0" }}>
@@ -32,7 +35,13 @@ const ReviewAndApproval = () => {
         <SupplierActions canExport={false} />
       </Row>
 
-      <SupplierTable columns={reviewApprovalColumn} data={reviewApprovalData} />
+      <DataTable
+        columns={reviewApprovalColumn}
+        data={reviewApprovalData}
+        onRowClick={(record) =>
+          navigate(`/supplier-management/review-approval/${record.id}`)
+        }
+      />
     </div>
   );
 };

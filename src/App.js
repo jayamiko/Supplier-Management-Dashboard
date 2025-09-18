@@ -4,22 +4,39 @@ import SupplierList from "./components/organisms/SupplierList";
 import Configurations from "./components/organisms/Configurations";
 import ReviewAndApproval from "./components/organisms/ReviewAndApproval";
 import SupplierDetailManagementPage from "./components/pages/SupplierDetailManagementPage";
+import ReviewDetailManagementPage from "./components/pages/ReviewDetailManagementPage";
 
 function App() {
   return (
     <Routes>
       <Route path="/" element={<SupplierManagementTemplate />}>
         <Route index element={<h2>Dashboard</h2>} />
-        <Route path="supplier-list" element={<SupplierList />} />
         <Route
-          path="supplier-dashboard"
+          path="supplier-management/supplier-dashboard"
           element={<h2>Supplier Dashboard</h2>}
         />
-        <Route path="supplier-review" element={<ReviewAndApproval />} />
-        <Route path="supplier-config" element={<Configurations />} />
+        <Route
+          path="supplier-management/supplier-list"
+          element={<SupplierList />}
+        />
+        <Route
+          path="supplier-management/review-approval"
+          element={<ReviewAndApproval />}
+        />
+        <Route
+          path="supplier-management/configurations"
+          element={<Configurations />}
+        />
         <Route path="funnel-overview" element={<h2>Funnel Overview</h2>} />
         <Route path="funnel-reports" element={<h2>Funnel Reports</h2>} />
-        <Route path="supplier/:id" element={<SupplierDetailManagementPage />} />
+        <Route
+          path="supplier-management/supplier-list/:id"
+          element={<SupplierDetailManagementPage />}
+        />
+        <Route
+          path="supplier-management/review-approval/:id"
+          element={<ReviewDetailManagementPage />}
+        />
       </Route>
     </Routes>
   );

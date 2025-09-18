@@ -4,6 +4,7 @@ import { Space } from "antd";
 export const supplierData = [
   {
     key: 1,
+    id: 1,
     name: "PT Setroom Indonesia",
     address: "Jakarta, Indonesia",
     contact: "Albert Einstein",
@@ -11,6 +12,7 @@ export const supplierData = [
   },
   {
     key: 2,
+    id: 2,
     name: "PT Suka Suka",
     address: "Bandung, Indonesia",
     contact: "James Lee",
@@ -18,6 +20,7 @@ export const supplierData = [
   },
   {
     key: 3,
+    id: 3,
     name: "PT Angin Ribut",
     address: "Denpasar, Indonesia",
     contact: "Maria Chen",

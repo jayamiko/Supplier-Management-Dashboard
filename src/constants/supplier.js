@@ -14,6 +14,10 @@ import {
   supplierOverviewMaterialColumns,
   supplierOverviewOtherColumns,
 } from "./columns";
+import { DollarCircleOutlined, PlusCircleFilled } from "@ant-design/icons";
+import React from "react";
+import { RiTeamFill } from "react-icons/ri";
+import { BsStopwatchFill } from "react-icons/bs";
 
 export const supplierStatusList = [
   {
@@ -30,30 +34,53 @@ export const supplierStatusList = [
   },
 ];
 
+export const supplierReviewList = [
+  {
+    key: "1",
+    label: "Sales",
+  },
+  {
+    key: "2",
+    label: "Marketing",
+  },
+  {
+    key: "3",
+    label: "Data Management",
+  },
+  {
+    key: "4",
+    label: "SSO",
+  },
+];
+
 export const supplierDataStats = [
   {
     title: "Total Supplier",
     value: 1869,
     trend: "up",
     percent: 8,
+    icon: React.createElement(RiTeamFill),
   },
   {
     title: "New Supplier",
     value: 27,
     trend: "up",
     percent: 1,
+    icon: React.createElement(PlusCircleFilled),
   },
   {
     title: "Avg Cost per Supplier",
     value: "Rp 320,3 Mn",
     trend: "down",
     percent: 1,
+    icon: React.createElement(DollarCircleOutlined),
   },
   {
     title: "Blocked Supplier",
     value: 31,
     trend: "down",
     percent: 4,
+    icon: React.createElement(BsStopwatchFill),
   },
 ];
 

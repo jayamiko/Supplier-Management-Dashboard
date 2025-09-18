@@ -16,10 +16,13 @@ const menuItems = [
     icon: React.createElement(TeamOutlined),
     label: "Supplier Management",
     children: [
-      { key: "supplier-dashboard", label: "Dashboard" },
-      { key: "supplier-list", label: "Supplier List" },
-      { key: "supplier-review", label: "Review & Approvals" },
-      { key: "supplier-config", label: "Configurations" },
+      { key: "supplier-management/supplier-dashboard", label: "Dashboard" },
+      { key: "supplier-management/supplier-list", label: "Supplier List" },
+      {
+        key: "supplier-management/review-approval",
+        label: "Review & Approvals",
+      },
+      { key: "supplier-management/configurations", label: "Configurations" },
     ],
   },
   {
