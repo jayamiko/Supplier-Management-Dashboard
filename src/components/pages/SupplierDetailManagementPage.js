@@ -35,6 +35,8 @@ import MaterialCatalogActions from "../molecules/MaterialCatalogActions";
 import { useParams } from "react-router-dom";
 import StatCard from "../atoms/StatCard";
 import OrderCard from "../atoms/OrderCard";
+import SupplierReviewActions from "../molecules/SupplierReviewActions";
+import AssessmentTemplate from "../templates/AssessmentTemplate";
 
 export default function SupplierDetailManagementPage() {
   const { id } = useParams();
@@ -132,9 +134,47 @@ export default function SupplierDetailManagementPage() {
             </TabPane>
 
             <TabPane tab="Assessment" key="assessment">
-              <Card>
-                <p>Assessment table and quick actions.</p>
-              </Card>
+              <div className="grid grid-cols-12 gap-4">
+                <div className="col-span-6">
+                  <OrgPanelSteps
+                    title="Stage: Supplier Creation"
+                    stage={1}
+                    steps={["Draft", "In Review", "In Assessment", "Active"]}
+                    descriptions={[
+                      "Jan 01, 2025 08:20:12",
+                      "Time Remaining 05:00:10",
+                      "",
+                      "",
+                    ]}
+                  />
+                </div>
+
+                <div className="col-span-6">
+                  <OrgPanelSteps
+                    title="Workflow: Supplier Review"
+                    stage={2}
+                    steps={[
+                      "Sales Manager",
+                      "Marketing",
+                      "Data Management",
+                      "SSO",
+                    ]}
+                    descriptions={[
+                      "Jan 01, 2025 08:20:12",
+                      "Jan 01, 2025 09:20:12",
+                      "Time Remaining 05:00:10",
+                      "",
+                    ]}
+                    hasNote
+                  >
+                    <SupplierReviewActions />
+                  </OrgPanelSteps>
+                </div>
+              </div>
+
+              <div>
+                <AssessmentTemplate />
+              </div>
             </TabPane>
 
             <TabPane tab="Material Catalog" key="catalog">
